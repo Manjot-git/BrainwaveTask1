@@ -1,0 +1,248 @@
+:root {
+  --bg: #f3f4f6;
+  --text: #1f2937;
+  --card: #ffffff;
+  --input: #f9fafb;
+  --btn: #3b82f6;
+  --btn-text: #ffffff;
+  --border: #d1d5db;
+  --highlight: #10b981;
+  --badge: #facc15;
+  --badge-text: #78350f;
+}
+
+.dark {
+  --bg: #1e293b;
+  --text: #f8fafc;
+  --card: #334155;
+  --input: #475569;
+  --btn: #0ea5e9;
+  --btn-text: #000;
+  --border: #64748b;
+  --highlight: #22c55e;
+  --badge: #fbbf24;
+  --badge-text: #fef9c3;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+  padding: 30px 15px;
+  text-align: center;
+  color: rgb(128, 71, 71);
+  line-height: 0.2rem;
+  border-bottom: 2px dashed var(--border);
+  letter-spacing: 33px;
+  font-weight: 800;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+#themeToggle {
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+  border: none;
+  color: var(--text);
+  transition: transform 0.3s;
+}
+#themeToggle:hover {
+  transform: rotate(15deg);
+}
+
+#daySelector {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  margin: 16px 0;
+  background-color: var(--card);
+  border: 2px solid var(--badge);
+  color: var(--badge-text);
+  font-weight: bold;
+}
+
+.date {
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.planner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.time-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--btn);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+.time-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+}
+
+.time-card.current {
+  border: 2px solid var(--highlight);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.time-card span {
+  width: 60px;
+  font-weight: bold;
+}
+
+.time-card input {
+  flex: 1;
+  padding: 10px;
+  margin: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--input);
+  color: var(--text);
+}
+
+.add-btn {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: var(--btn-text);
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.add-btn:hover {
+  background: #1d4ed8;
+}
+
+#clear, #weeklySummaryBtn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: var(--btn);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+#clear:hover, #weeklySummaryBtn:hover {
+  background-color: #1e40af;
+}
+
+#toast {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: var(--highlight);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 999;
+}
+#toast.show {
+  opacity: 1;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow: auto;
+}
+.modal-content {
+  background-color: var(--card);
+  margin: 8% auto;
+  padding: 20px;
+  border-radius: 14px;
+  width: 90%;
+  max-width: 700px;
+  color: var(--text);
+}
+#weeklyContent h3 {
+  margin: 12px 0 4px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 6px;
+}
+#weeklyContent p {
+  margin: 4px 0;
+}
+#closeModal {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Wrap planner inside a card layout */
+.planner {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background-color: #2c2c2c; /* card background */
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #444;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.day-info {
+  text-align: center;
+  margin: 20px 0;
+}
+.day-info p {
+  margin: 5px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.day-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 12px 0;
+  padding: 0 10px;
+}
+
+.day-date p {
+  margin: 0;
+}
