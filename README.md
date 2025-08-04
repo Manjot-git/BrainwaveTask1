@@ -4,6 +4,13 @@ A simple and intuitive weekly planner built using **HTML**, **CSS**, and **Vanil
 
 ---
 
+## 🔥 Live Demo
+
+🔗 [View Website](https://manjot-git.github.io/BrainwaveTask1/)  
+
+---
+
+
 ## ✨ Features
 
 - ✅ **Add Tasks by Hour**  
